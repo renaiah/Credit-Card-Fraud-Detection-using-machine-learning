@@ -1,60 +1,94 @@
-# Credit-Card-Fraud-Detection-using-machine-learning
-Credit Card Fraud Detection
-Project Overview
-This project aims to detect fraudulent credit card transactions using a machine learning model. The dataset used in this project contains transactions made by credit card holders, with a focus on differentiating between normal and fraudulent transactions.
 
-Dataset
-The dataset used in this project is the Kaggle Credit Card Fraud Detection dataset. It contains 284,807 transactions, each with 30 features including Time, Amount, and 28 anonymized features labeled V1 to V28. The Class column is the target variable, where 0 represents a normal transaction and 1 represents a fraudulent one.
+# Credit Card Fraud Detection
 
-Number of Instances: 284,807
-Number of Features: 31 (including the target variable)
-Number of Normal Transactions: 284,315 (99.83%)
-Number of Fraudulent Transactions: 492 (0.17%)
-Data Preprocessing
-The dataset is highly imbalanced, with fraudulent transactions constituting only 0.17% of all transactions. To address this, undersampling was used to create a balanced dataset where the number of normal and fraudulent transactions is equal.
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Model Training](#model-training)
+- [Future Scope](#future-scope)
+- [Contributing](#contributing)
+- [License](#license)
 
-Steps Involved:
-Loading the Dataset: The dataset was loaded into a Pandas DataFrame.
-Exploratory Data Analysis (EDA): Basic statistics and distributions of the dataset were analyzed.
-Balancing the Dataset: Undersampling was performed to create a balanced dataset with an equal number of normal and fraudulent transactions (492 each).
-Feature Selection: All features except the target variable (Class) were selected for model training.
-Data Splitting: The balanced dataset was split into features (X) and target (Y).
-Model Building
-A Logistic Regression model was trained on the balanced dataset to classify transactions as normal or fraudulent.
 
-Steps Involved:
-Splitting the Data: The dataset was split into training and testing sets.
-Training the Model: A Logistic Regression model was trained on the training data.
-Model Evaluation: The model's performance was evaluated using accuracy, confusion matrix, and classification report.
+
+## Introduction
+The Credit Card Fraud Detection project aims to identify fraudulent credit card transactions using machine learning techniques. By analyzing patterns in transaction data, the model is designed to differentiate between legitimate and fraudulent transactions, thereby helping financial institutions reduce the risk of fraud. This project uses a dataset with imbalanced classes, where fraudulent transactions are much rarer than legitimate ones.
+
+## Features
+Fraud Detection 
+- Classifies credit card transactions as fraudulent or legitimate.
+Data Handling
+- Balances the dataset using undersampling to handle class imbalance.
 Model Performance
-Accuracy: Achieved a high accuracy on the test data.
-Confusion Matrix: Shows the number of correct and incorrect predictions.
-Classification Report: Provides precision, recall, F1-score, and support for each class.
-Conclusion
-This project demonstrates how to detect fraudulent credit card transactions using machine learning. Although the dataset was highly imbalanced, undersampling helped in creating a balanced dataset, allowing the model to learn effectively. The Logistic Regression model provided satisfactory results in identifying fraudulent transactions.
+- Achieves high accuracy, precision, recall, and F1-score on the test data.
+Visualization
+- Provides a confusion matrix and classification report for performance evaluation.
 
-Installation
-To run this project, you need to have Python installed along with the following libraries:
+## Installation
+To run this project locally, follow these steps:
 
-numpy
-pandas
-scikit-learn
-You can install the required libraries using pip:
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/renaiah/credit-card-fraud-detection.git
 
-bash
-Copy code
-pip install numpy pandas scikit-learn
-Usage
-To use this project, clone the repository and run the credit_card_fraud_detection.py script:
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd credit-card-fraud-detection
+    ```
+3. Run the script:
+    ```bash
+    python credit_card_fraud_detection.py
+    ```
+4. Install the required libraries:
+    ```bash
+    pip install numpy pandas scikit-learn
+    ```
 
-bash
-Copy code
-git clone https://github.com/renaiah/credit-card-fraud-detection.git
-cd credit-card-fraud-detection
-python credit_card_fraud_detection.py
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Usage
+To use the Credit Card Fraud Detection model:
 
-Acknowledgements
-The dataset used in this project was provided by Kaggle.
-The project was developed using open-source libraries like Pandas, NumPy, and Scikit-learn.
+1. Ensure the dataset (creditcard.csv) is in the project directory.
+2. Run the Streamlit app:
+    ```bash
+    python credit_card_fraud_detection.py
+    ```
+3. The script will preprocess the data, train the model, and display the evaluation metrics.
+
+## Model Training
+The model is trained using TensorFlow and Keras. Key details about the training process:
+
+- **Model:** Logestic Regression
+- **Dataset:** 284,807 transactions in data from Kaggle
+- **Libraries:** Pandas, NumPy, Matplotlib, Scikit-learn
+- **Train Accuracy:** ~94%
+- **Validation Accuracy:** ~91%
+
+### Data Preparation
+The dataset is highly imbalanced, so undersampling is used to balance the number of fraudulent and legitimate transactions. The data is split into training and testing sets.
+
+
+### Training Process
+The Logistic Regression model is trained on the balanced dataset using Scikit-learn. The training process includes:
+- Splitting: Data is split into training and test sets.
+- Training: The model is trained on the training data.
+- Evaluation: The model's performance is evaluated using accuracy, precision, recall, and F1-score on the test data.
+
+### Visualization
+The script includes visualizations such as a confusion matrix and a classification report to provide insights into the model's performance.
+
+## Future Scope
+This project currently uses Logistic Regression for fraud detection. Future improvements could include:
+
+- Model Expansion: Exploring more complex models like Random Forest, Gradient Boosting, or Neural Networks for better accuracy.
+- Data Augmentation: Implementing techniques like SMOTE for better handling of imbalanced datasets.
+- Real-Time Implementation: Developing a real-time fraud detection system that can be integrated into financial transaction systems.
+- Feature Engineering: Creating new features from existing data to enhance model performance.
+
+## Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes. Suggestions for improving the model or the codebase are highly appreciated.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
